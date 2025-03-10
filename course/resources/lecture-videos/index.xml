@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lecture Videos on MIT OpenCourseWare</title>
+    <link>/resources/lecture-videos/</link>
+    <description>Recent content in Lecture Videos on MIT OpenCourseWare</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/resources/lecture-videos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lecture 1: Introduction and Matrix Multiplication</title>
+      <link>/resources/lecture-1-intro-and-matrix-multiplication/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/lecture-1-intro-and-matrix-multiplication/data.json</guid>
+      <description>Description: Professor Leiserson introduces 6.172 Performance Engineering of Software Systems. The class examines an example of code optimization using matrix multiplication and discusses the differences between programming languages Python, Java, and C.
+Instructor: Charles Leiserson</description>
+    </item>
+    
+    <item>
+      <title>Lecture 10: Measurement and Timing</title>
+      <link>/resources/lecture-10-measurement-and-timing/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/lecture-10-measurement-and-timing/data.json</guid>
+      <description>Description: This lecture is about how one can reliably measure the performance of software and examples of various factors that can contribute to incorrect measurements. Different timers are explored as well as the use of simulators.
+Instructor: Charles Leiserson</description>
+    </item>
+    
+    <item>
+      <title>Lecture 11: Storage Allocation</title>
+      <link>/resources/lecture-11-storage-allocation/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/lecture-11-storage-allocation/data.json</guid>
+      <description>Description: This lecture discusses different means of storage allocation, including stacks, fixed-sized heaps, and variable-sized heaps. The lecture also discusses garbage collection, including by counting reference pointers, mark-and-sweep, and stop-and-copy.
+Instructor: Julian Shun</description>
+    </item>
+    
+    <item>
+      <title>Lecture 12: Parallel Storage Allocation</title>
+      <link>/resources/lecture-12-parallel-storage-allocation/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/lecture-12-parallel-storage-allocation/data.json</guid>
+      <description>Description: Prof. Shun discusses the differences between malloc() and mmap(); how cactus stacks work; parallel allocation strategies including global heaps, local heaps, and local ownership; and incremental, parallel, and concurrent garbage collection.
+Instructor: Julian Shun</description>
+    </item>
+    
+    <item>
+      <title>Lecture 13: The Cilk Runtime System</title>
+      <link>/resources/lecture-13-the-cilk-runtime-system/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/lecture-13-the-cilk-runtime-system/data.json</guid>
+      <description>Description: This class is focused on the Cilk runtime system. It stresses the work-first principle: optimize for ordinary serial execution at the expense of additional computation in steals. There is an emphasis on performance models and parallel runtime systems.
+Instructor: Tao B. Schardl</description>
+    </item>
+    
+    <item>
+      <title>Lecture 14: Caching and Cache-Efficient Algorithms</title>
+      <link>/resources/lecture-14-caching-and-cache-efficient-algorithms/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/lecture-14-caching-and-cache-efficient-algorithms/data.json</guid>
+      <description>Description: Prof. Shun discusses associativity in caches, the ideal cache model, cache-aware algorithms like tiled matrix multiplication, and cache-oblivious algorithms like divide-and-conquer matrix multiplication.
+Instructor: Julian Shun</description>
+    </item>
+    
+    <item>
+      <title>Lecture 15: Cache-Oblivious Algorithms</title>
+      <link>/resources/lecture-15-cache-oblivious-algorithms/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/lecture-15-cache-oblivious-algorithms/data.json</guid>
+      <description>Description: Prof. Shun discusses cache-oblivious algorithms through a simulation of heat diffusion and a 3-point stencil simulation. Caching and parallelism is discussed in Cilk.
+Instructor: Julian Shun</description>
+    </item>
+    
+    <item>
+      <title>Lecture 16: Nondeterministic Parallel Programming</title>
+      <link>/resources/lecture-16-nondeterministic-parallel-programming/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/lecture-16-nondeterministic-parallel-programming/data.json</guid>
+      <description>Description: Prof. Leiserson discusses nondeterministic parallel programming, atomicity implement through mutexes, determinacy races, and data races. Deadlock and the dining philosopher’s problem are also discussed.
+Instructor: Charles Leiserson</description>
+    </item>
+    
+    <item>
+      <title>Lecture 17: Synchronization Without Locks</title>
+      <link>/resources/lecture-17-synchronization-without-locks/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/lecture-17-synchronization-without-locks/data.json</guid>
+      <description>Description: Prof. Leiserson discusses non-lock synchronization using memory models, Peterson’s algorithm, instruction reordering, and hardware reordering. He discusses the compare-and-swap operation; lock-free stacks, pushes, and pops; and the ABA problem.
+Instructor: Charles Leiserson</description>
+    </item>
+    
+    <item>
+      <title>Lecture 18: Domain Specific Languages and Autotuning</title>
+      <link>/resources/lecture-18-domain-specific-languages-and-autotuning/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/lecture-18-domain-specific-languages-and-autotuning/data.json</guid>
+      <description>Description: Prof. Amarasinghe discusses domain specific languages, when they are applicable to be used, scheduling optimizations, and autotuning. The three languages discussed in particular are GraphIt, Halide, and OpenTuner.
+Instructor: Saman Amarasinghe</description>
+    </item>
+    
+    <item>
+      <title>Lecture 19: Leiserchess Codewalk</title>
+      <link>/resources/lecture-19-leiserchess-codewalk/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/lecture-19-leiserchess-codewalk/data.json</guid>
+      <description>Description: This lecture is an introduction to Leiserchess and Project 4 of the course.
+Instructor: Helen Xu</description>
+    </item>
+    
+    <item>
+      <title>Lecture 2: Bentley Rules for Optimizing Work</title>
+      <link>/resources/lecture-2-bentley-rules-for-optimizing-work/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/lecture-2-bentley-rules-for-optimizing-work/data.json</guid>
+      <description>Description: Prof. Shun discusses Bentley Rules for optimizing work and discusses a number of examples including packing and encoding, compile-time initialization, loop unrolling, short-circuiting, fast paths, and combining tests.
+Instructor: Julian Shun</description>
+    </item>
+    
+    <item>
+      <title>Lecture 20: Speculative Parallelism &amp; Leiserchess</title>
+      <link>/resources/lecture-20-speculative-parallelism-leiserchess/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/lecture-20-speculative-parallelism-leiserchess/data.json</guid>
+      <description>Description: Prof. Leiserson discusses speculative parallelism and its applications in parallel alpha-beta search and jamboree search. The lecture ends with a discussion of computer-chess programs.
+Instructor: Charles Leiserson</description>
+    </item>
+    
+    <item>
+      <title>Lecture 21: Tuning a TSP Algorithm</title>
+      <link>/resources/lecture-21-tuning-a-tsp-algorithm/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/lecture-21-tuning-a-tsp-algorithm/data.json</guid>
+      <description>Description: Jon Bentley, retired from Bell Labs Research, discusses the traveling salesperson problem. This class is a case study in implementing algorithms, recursive enumeration, algorithm engineering, and applying algorithms and data structures.
+Instructor: Jon Bentley</description>
+    </item>
+    
+    <item>
+      <title>Lecture 22: Graph Optimization</title>
+      <link>/resources/lecture-22-graph-optimization/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/lecture-22-graph-optimization/data.json</guid>
+      <description>Description: Prof. Shun discusses graph optimizations, algorithmic and by exploiting locality, and issues such how real-world graphs are large and sparse, irregular graph algorithms with many memory accesses, and optimizations working for some graphs, but not others.
+Instructor: Julian Shun</description>
+    </item>
+    
+    <item>
+      <title>Lecture 23: High Performance in Dynamic Languages</title>
+      <link>/resources/lecture-23-high-performance-in-dynamic-languages/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/lecture-23-high-performance-in-dynamic-languages/data.json</guid>
+      <description>Description: Professor Steven Johnson talks about a new dynamic language called Julia as an alternative to the two-language approach for interactive math. Julia is then compared to Python and C. Instructor: Steven Johnson</description>
+    </item>
+    
+    <item>
+      <title>Lecture 3: Bit Hacks</title>
+      <link>/resources/lecture-3-bit-hacks/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/lecture-3-bit-hacks/data.json</guid>
+      <description>Description: Prof. Shun discusses an array of bit hacks, the types of hacks compilers do, and bit hacks to do by hand when the compiler doesn’t optimize.
+Instructor: Julian Shun</description>
+    </item>
+    
+    <item>
+      <title>Lecture 4: Assembly Language &amp; Computer Architecture</title>
+      <link>/resources/lecture-4-assembly-language-computer-architecture/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/lecture-4-assembly-language-computer-architecture/data.json</guid>
+      <description>Description: Prof. Leiserson walks through the stages of code from source code to compilation to machine code to hardware interpretation and, finally, to execution.
+Instructor: Charles Leiserson</description>
+    </item>
+    
+    <item>
+      <title>Lecture 5: C to Assembly</title>
+      <link>/resources/lecture-5-c-to-assembly/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/lecture-5-c-to-assembly/data.json</guid>
+      <description>Description: This lecture focuses on how C code is implemented in x86-64 assembly. Dr. Schardl reasons through the mapping from C code to assembly in two steps: C to LLVM IR and then LLVM IR to Assembly.
+Instructor: Tao B. Schardl</description>
+    </item>
+    
+    <item>
+      <title>Lecture 6: Multicore Programming</title>
+      <link>/resources/lecture-6-multicore-programming/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/lecture-6-multicore-programming/data.json</guid>
+      <description>Description: This lecture covers modern multi-core processors, the need to utilize parallel programming for high performance, and how Cilk abstracts processor cores, handles synchronization and communication protocols, and performs provably efficient load balancing.
+Instructor: Julian Shun</description>
+    </item>
+    
+    <item>
+      <title>Lecture 7: Races and Parallelism</title>
+      <link>/resources/lecture-7-races-and-parallelism/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/lecture-7-races-and-parallelism/data.json</guid>
+      <description>Description: Professor Shun discusses races and parallelism, how cilkscale can analyze computation and detect determinacy races, and types of schedulers.
+Instructor: Julian Shun</description>
+    </item>
+    
+    <item>
+      <title>Lecture 8: Analysis of Multithreaded Algorithms</title>
+      <link>/resources/lecture-8-analysis-of-multithreaded-algorithms/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/lecture-8-analysis-of-multithreaded-algorithms/data.json</guid>
+      <description>Description: Professor Leiserson explains divide-and-conquer recurrences, cilk loops, matrix multiplication, merge sort, and tableau construction.
+Instructor: Charles Leiserson</description>
+    </item>
+    
+    <item>
+      <title>Lecture 9: What Compilers Can and Cannot Do</title>
+      <link>/resources/lecture-9-what-compilers-can-and-cannot-do/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/lecture-9-what-compilers-can-and-cannot-do/data.json</guid>
+      <description>Description: T.B. Schardl discusses the Clang/LLVM compilation pipeline as well as reasons to study compiler optimizations, how to use compiler reports, and compiler optimization. Three case studies on diagnosing failures are examined.
+Instructor: Tao B. Schardl</description>
+    </item>
+    
+    <item>
+      <title>Lecture Videos</title>
+      <link>/video_galleries/lecture-videos/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/video_galleries/lecture-videos/data.json</guid>
+      <description> Lecture 1: Introduction and Matrix Multiplication Lecture 2: Bentley Rules for Optimizing Work Lecture 3: Bit Hacks Lecture 4: Assembly Language &amp;amp; Computer Architecture Lecture 5: C to Assembly Lecture 6: Multicore Programming Lecture 7: Races and Parallelism Lecture 8: Analysis of Multithreaded Algorithms Lecture 9: What Compilers Can and Cannot Do Lecture 10: Measurement and Timing Lecture 11: Storage Allocation Lecture 12: Parallel Storage Allocation Lecture 13: The Cilk Runtime System Lecture 14: Caching and Cache-Efficient Algorithms Lecture 15: Cache-Oblivious Algorithms Lecture 16: Nondeterministic Parallel Programming Lecture 17: Synchronization Without Locks Lecture 18: Domain Specific Languages and Autotuning Lecture 19: Leiserchess Codewalk Lecture 20: Speculative Parallelism &amp;amp; Leiserchess Lecture 21: Tuning a TSP Algorithm Lecture 22: Graph Optimization Lecture 23: High Performance in Dynamic Languages </description>
+    </item>
+    
+  </channel>
+</rss>

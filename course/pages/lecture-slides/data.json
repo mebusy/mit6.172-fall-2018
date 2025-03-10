@@ -1,0 +1,6 @@
+
+{
+  "title":"Lecture Slides",
+  "content":" Ses # Topics 1\nIntroduction \u0026amp; Matrix Multiplication (PDF - 6.9MB)\n2\nBentley Rules for Optimizing Work (PDF - 3.5 MB)\n3\nBit Hacks (PDF - 2.3MB)\n4\nAssembly Language and Computer Architecture (PDF - 6.4MB)\n5\nC to Assembly (PDF - 6.5MB)\n6\nMulticore Programming (PDF - 4.4MB)\n7\nRaces and Parallelism (PDF - 4.4MB)\n8\nAnalysis of Multithreaded Algorithms (PDF - 6.3MB)\n9\nWhat Compilers Can and Cannot Do (PDF - 7.4MB)\n10\nMeasurement and Timing (PDF - 1.6MB)\n11\nStorage Allocation (PDF - 3.3MB)\n12\nParallel Storage Allocation (PDF - 2.5MB)\n13\nThe Cilk Runtime System (PDF - 4.7MB)\n14\nCaching and Cache-Efficient Algorithms (PDF - 2.8MB)\n15\nCache-Oblivious Algorithms (PDF - 3.2MB)\n16\nNondeterministic Parallel Programming (PDF - 3.3MB)\n17\nSynchronization Without Locks (PDF - 3.3MB)\n18\nDomain Specific Languages and Autotuning (PDF - 4.6MB)\n19\nLeiserchess Codewalk (PDF - 6.4MB)\n20\nSpeculative Parallelism \u0026amp; Leiserchess (PDF - 6.2MB)\n21\nTuning a TSP Algorithm (PDF - 1.6MB)\n22\nGraph Optimization (PDF - 2.9MB)\n23\nHigh Performance in Dynamic Languages (PDF)\n"}
+
+

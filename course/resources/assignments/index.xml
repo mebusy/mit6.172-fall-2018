@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Assignments on MIT OpenCourseWare</title>
+    <link>/resources/assignments/</link>
+    <description>Recent content in Assignments on MIT OpenCourseWare</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/resources/assignments/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>6.172 Performance Engineering of Software Services, Homework 8: Cache-Oblivious Algorithms</title>
+      <link>/resources/mit6_172f18hw8/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18hw8/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>6.172 Performance Engineering of Software Systems, Homework 1: Getting Started</title>
+      <link>/resources/mit6_172f18hw1/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18hw1/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>6.172 Performance Engineering of Software Systems, Homework 10: Data Synchronization</title>
+      <link>/resources/mit6_172f18hw10/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18hw10/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>6.172 Performance Engineering of Software Systems, Homework 2: Profiling Serial Merge Sort</title>
+      <link>/resources/mit6_172f18hw2/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18hw2/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>6.172 Performance Engineering of Software Systems, Homework 3: Vectorization</title>
+      <link>/resources/mit6_172f18hw3/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18hw3/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>6.172 Performance Engineering of Software Systems, Homework 4: Reducer Hyperobjects</title>
+      <link>/resources/mit6_172f18hw4/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18hw4/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>6.172 Performance Engineering of Software Systems, Homework 5: Theory of Performance Engineering</title>
+      <link>/resources/mit6_172f18hw5/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18hw5/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>6.172 Performance Engineering of Software Systems, Homework 6: Custom Memory Allocators</title>
+      <link>/resources/mit6_172f18hw6/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18hw6/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>6.172 Performance Engineering of Software Systems, Homework 7: Dynamic-Analysis Tools</title>
+      <link>/resources/mit6_172f18hw7/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18hw7/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>6.172 Performance Engineering of Software Systems, Homework 9: Deterministic Execution</title>
+      <link>/resources/mit6_172f18hw9/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18hw9/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Assignments</title>
+      <link>/pages/assignments/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/assignments/data.json</guid>
+      <description>[Note: Assignments make use of AWS/Git features which may not be available to OCW users.]
+Homework 5 refers to Chapter 27 (PDF) of Introduction to Algorithms by Cormen, Leiserson, Rivest, and Stein (CLRS).
+Cormen, Thomas, Charles Leiserson, Ronald Rivest, and Clifford Stein. Introduction to Algorithms. MIT Press, 2009. ISBN: 9780262033848 Problems Code HW1: Basic Tools, C Primer (PDF)
+HW 1 Materials (ZIP)
+This ZIP file contains 6 .c files, 1 .</description>
+    </item>
+    
+    <item>
+      <title>MIT6_172F18_hw1.zip</title>
+      <link>/resources/mit6_172f18_hw1/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18_hw1/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MIT6_172F18_hw2.zip</title>
+      <link>/resources/mit6_172f18_hw2/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18_hw2/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MIT6_172F18_hw3.zip</title>
+      <link>/resources/mit6_172f18_hw3/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18_hw3/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MIT6_172F18_hw7.zip</title>
+      <link>/resources/mit6_172f18_hw7/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18_hw7/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MIT6_172F18_hw9.zip</title>
+      <link>/resources/mit6_172f18_hw9/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18_hw9/data.json</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

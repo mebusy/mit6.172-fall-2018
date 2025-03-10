@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on MIT OpenCourseWare</title>
+    <link>/resources/projects/</link>
+    <description>Recent content in Projects on MIT OpenCourseWare</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/resources/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>6.172 Performance Engineering of Software Systems, Leiserchess</title>
+      <link>/resources/mit6_172f18_leiserchess/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18_leiserchess/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>6.172 Performance Engineering of Software Systems, Project 1: Bit Hacks</title>
+      <link>/resources/mit6_172f18_project1/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18_project1/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>6.172 Performance Engineering of Software Systems, Project 2: Collision Detection</title>
+      <link>/resources/mit6_172f18_project2/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18_project2/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>6.172 Performance Engineering of Software Systems, Project 3: Serial Dynamic Memory Allocation</title>
+      <link>/resources/mit6_172f18_project3/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18_project3/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>6.172 Performance Engineering of Software Systems, Project 4: Leiserchess</title>
+      <link>/resources/mit6_172f18_project4/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18_project4/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MIT6_172F18-project1.zip</title>
+      <link>/resources/mit6_172f18-project1/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18-project1/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MIT6_172F18-project2.zip</title>
+      <link>/resources/mit6_172f18-project2/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18-project2/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MIT6_172F18-project3.zip</title>
+      <link>/resources/mit6_172f18-project3/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18-project3/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MIT6_172F18-project4.zip</title>
+      <link>/resources/mit6_172f18-project4/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18-project4/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>/pages/projects/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/projects/data.json</guid>
+      <description>Project Structure Each project will consist of a beta submission, code and design review with a Deputy, and a final submission. You must also submit a write-up that describes your implementation for each beta and final submission. The exact grading scheme for the projects will vary. The assignment handout for each project will include a section describing exactly how your implementation will be evaluated. A large portion of the grade will be on how fast your code runs.</description>
+    </item>
+    
+  </channel>
+</rss>

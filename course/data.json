@@ -1,0 +1,28 @@
+{
+  "course_title":"Performance Engineering of Software Systems",
+  "course_description":"6.172 is an 18-unit class that provides a hands-on, project-based introduction to building scalable and high-performance software systems. Topics include performance analysis, algorithmic techniques for high performance, instruction-level optimizations, caching optimizations, parallel programming, and building scalable systems. The course programming language is C.\n",
+  "course_description_html":"6.172 is an 18-unit class that provides a hands-on, project-based introduction to building scalable and high-performance software systems. Topics include performance analysis, algorithmic techniques for high performance, instruction-level optimizations, caching optimizations, parallel programming, and building scalable systems. The course programming language is C.",
+  "site_uid":"a9a6933b-67e0-412c-b339-0e947faf7fba",
+  "legacy_uid":"a18b8029-6ad4-d548-00db-cdd1f6c1ac1f","instructors": [{
+    "first_name":"Charles",
+    "last_name":"Leiserson",
+    "middle_initial":"",
+    "salutation":"Prof.",
+    "title":"Prof. Charles Leiserson"},{
+    "first_name":"Julian",
+    "last_name":"Shun",
+    "middle_initial":"",
+    "salutation":"Prof.",
+    "title":"Prof. Julian Shun"}],"department_numbers":["6"],
+  "learning_resource_types":["Lecture Videos","Programming Assignments","Projects","Lecture Notes","Exams with Solutions"],
+  "topics":[["Engineering","Computer Science","Algorithms and Data Structures"],["Engineering","Computer Science","Software Design and Engineering"],["Engineering","Systems Engineering","Systems Optimization"]],
+  "mit_learn_topics":null,
+  "primary_course_number":"6.172",
+  "extra_course_numbers":"",
+  "term":"Fall",
+  "year":"2018",
+  "level":["Undergraduate"],
+  "hide_download":null,
+  "image_src":"./static_resources/2ea5b1550197db095fcb82df55203675_6-172f18.jpg",
+  "course_image_metadata":{"content_type":"resource","description":"","draft":false,"file":"/courses/6-172-performance-engineering-of-software-systems-fall-2018/2ea5b1550197db095fcb82df55203675_6-172f18.jpg","file_size":77971,"file_type":"image/jpeg","image_metadata":{"caption":"Diagram of a move in Leiserchess, the final project in the course. Image courtesy of course instructors.","credit":"","image-alt":"Grid of tiles with lavender player pieces and tangerine player pieces."},"iscjklanguage":false,"learning_resource_types":[],"license":"https://creativecommons.org/licenses/by-nc-sa/4.0/","ocw_type":"OCWImage","resourcetype":"Image","title":"6-172f18.jpg","uid":"2ea5b155-0197-db09-5fcb-82df55203675"}}
+

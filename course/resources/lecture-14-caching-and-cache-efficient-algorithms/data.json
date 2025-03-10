@@ -1,0 +1,12 @@
+{
+  "title":"Lecture 14: Caching and Cache-Efficient Algorithms",
+  "description": "",
+  "file": null,
+  "learning_resource_types": ["Lecture Videos"],
+  "resource_type": "Video",
+  "file_type": null,
+  "youtube_key":  "xDKnMXtZKq8",
+  "captions_file": "/courses/6-172-performance-engineering-of-software-systems-fall-2018/a4cf806f928a506cbe85c8bbf333083c_xDKnMXtZKq8.vtt",
+  "transcript_file": "/courses/6-172-performance-engineering-of-software-systems-fall-2018/7d9bd2d2b309a0c7d07011d1fe1f9302_xDKnMXtZKq8.pdf",
+  "thumbnail_file": "https://img.youtube.com/vi/xDKnMXtZKq8/default.jpg",
+  "archive_url": "https://archive.org/download/MIT6.172F18/MIT6_172F18_lecture_14_300k.mp4"}

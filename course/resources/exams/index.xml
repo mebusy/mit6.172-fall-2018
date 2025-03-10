@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Exams on MIT OpenCourseWare</title>
+    <link>/resources/exams/</link>
+    <description>Recent content in Exams on MIT OpenCourseWare</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/resources/exams/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>6.172 Performance Engineering of Software Systems, Practice Quiz 1</title>
+      <link>/resources/mit6_172f18_practicequiz1/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18_practicequiz1/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>6.172 Performance Engineering of Software Systems, Practice Quiz 1 Solutions</title>
+      <link>/resources/mit6_172f18_practicequiz1answers/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18_practicequiz1answers/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>6.172 Performance Engineering of Software Systems, Practice Quiz 2</title>
+      <link>/resources/mit6_172f18_practicequiz2/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18_practicequiz2/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>6.172 Performance Engineering of Software Systems, Practice Quiz 2 Solutions</title>
+      <link>/resources/mit6_172f18_practicequiz2answers/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18_practicequiz2answers/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>6.172 Performance Engineering of Software Systems, Practice Quiz 3</title>
+      <link>/resources/mit6_172f18_practicequiz3/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18_practicequiz3/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>6.172 Performance Engineering of Software Systems, Practice Quiz 4</title>
+      <link>/resources/mit6_172f18_practicequiz4/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18_practicequiz4/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>6.172 Performance Engineering of Software Systems, Practice Quiz 4 Solutions</title>
+      <link>/resources/mit6_172f18_practicequiz4answers/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_172f18_practicequiz4answers/data.json</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Quizzes</title>
+      <link>/pages/quizzes/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/quizzes/data.json</guid>
+      <description> Quizzes Solutions Practice Quiz 1 (PDF) Practice Quiz 1 Solutions (PDF) Practice Quiz 2 (PDF) Practice Quiz 2 Solutions (PDF) Practice Quiz 3 (PDF) No Solutions Provided Practice Quiz 4 (PDF) Practice Quiz 4 Solutions (PDF) </description>
+    </item>
+    
+  </channel>
+</rss>

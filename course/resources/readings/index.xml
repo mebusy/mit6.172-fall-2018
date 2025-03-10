@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Readings on MIT OpenCourseWare</title>
+    <link>/resources/readings/</link>
+    <description>Recent content in Readings on MIT OpenCourseWare</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/resources/readings/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Readings</title>
+      <link>/pages/readings/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/readings/data.json</guid>
+      <description>6.172 has no required readings. This is a list of supplemental readings. Zhang, Yunming, Mengjiao Yang, et al. &amp;ldquo;GraphIt: A High-Performance Graph DSL.&amp;rdquo; Proceedings of the ACM on Programming Languages 2 (2018): article no. 121. Ansel, Jason, Shoaib Kamil, et al. &amp;ldquo;OpenTuner: An Extensible Framework for Program Autotuning.&amp;rdquo; Proceedings of the 23rd International Conference on Parallel Architectures and Compilation (2014): 303–316. Leiserson, Charles. &amp;ldquo;The Cilk++ Concurrency Platform.&amp;rdquo; The Journal of Supercomputing 51, no.</description>
+    </item>
+    
+  </channel>
+</rss>
