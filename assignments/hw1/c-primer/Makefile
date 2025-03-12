@@ -8,6 +8,11 @@ endif
 
 LDFLAGS := -lrt -flto -fuse-ld=gold
 
+# if OS is Apple, not use `-fuse-ld=gold`
+ifeq ($(shell uname),Darwin)
+	LDFLAGS := -flto
+endif
+
 all: sizes pointer swap
 
 sizes.o: sizes.c
