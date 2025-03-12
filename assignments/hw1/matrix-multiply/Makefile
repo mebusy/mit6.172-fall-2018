@@ -41,6 +41,10 @@ CFLAGS_ASAN := -O1 -g -fsanitize=address
 # default, your code is linked against the "rt" library with the flag -lrt;
 # this library is used by the timing code in the testbed.
 LDFLAGS := -lrt -flto -fuse-ld=gold
+# if is Darwin
+ifeq ($(shell uname),Darwin)
+  LDFLAGS := -flto
+endif
 
 ################################################################################
 # You probably won't need to change anything below this line, but if you're
