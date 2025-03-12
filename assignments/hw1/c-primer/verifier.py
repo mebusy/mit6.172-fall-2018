@@ -81,7 +81,7 @@ def runAndCheckSizes():
 
 def runAndCheckSwap():
     expected_output = "k = 2, m = 1\n"
-    output = runAndReadOutput("./swap")
+    output = runAndReadOutput("./swap").decode("utf-8")
 
     if output != expected_output:
         exitWithError(
