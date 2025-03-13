@@ -17,4 +17,5 @@
 ## Homework
 
 - [Homework 1: Getting Started](course/static_resources/2724d8594cb413754669fc4e9c6ce7db_MIT6_172F18hw1.pdf)
+- [Homework 2: Profiling Serial Merge Sort](course/static_resources/796439e646c02f44348d50b1836ff7f9_MIT6_172F18hw2.pdf)
 
