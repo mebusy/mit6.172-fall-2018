@@ -73,6 +73,8 @@
             ==34107== LL miss rate:            0.0% (          0.0%     +         0.0%  )
                         # 几乎所有数据都能在缓存中找到，极少需要访问主存。
             ```
+- [Homework 3: Vectorization](course/static_resources/072651a8229a63376d5720c9a500ae45_MIT6_172F18hw3.pdf)
+
 
 
 # LLDB 
