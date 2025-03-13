@@ -21,7 +21,7 @@
     - **perf** 使用采样来收集有关重要软件、内核和硬件事件的数据，以便找出程序中的性能瓶颈。它会生成代码中时间消耗位置的详细记录。
         ```bash
         perf record <program_name> <program_arguments>
-        perf report
+        perf report [-f]
         ```
     - if permission issue occurs
         - add 'kernel.perf_event_paranoid = -1'  to '/etc/sysctl.conf'
