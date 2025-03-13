@@ -23,12 +23,56 @@
         perf record <program_name> <program_arguments>
         perf report [-f]
         ```
-    - if permission issue occurs
-        - add 'kernel.perf_event_paranoid = -1'  to '/etc/sysctl.conf'
+        - if permission issue occurs
+            - add 'kernel.perf_event_paranoid = -1'  to '/etc/sysctl.conf'
+            ```bash
+            sudo sysctl -p
+            ```
+    - **valgrind** valgrind 的 cachegrind 是一个缓存和分支预测分析器。优化缓存命中率是性能工程的关键部分。 cachegrind 模拟了 程序如何与机器的缓存层次结构和分支预测器交互，即使在没有可用的硬件性能计数器的情况下也可以使用。
         ```bash
-        sudo sysctl -p
+        valgrind --tool=cachegrind --branch-sim=yes <program_name> <program_arguments>
         ```
+        - e.g.
+        ```bash
+        $ valgrind --tool=cachegrind --branch-sim=yes ./sort 100000 10
 
+        ==25465== 
+        ==25465== I refs:        4,665,037,323
+        ==25465== 
+        ==25465== Branches:        451,076,778  (434,076,096 cond + 17,000,682 ind)
+        ==25465== Mispredicts:      35,692,839  ( 35,692,555 cond +        284 ind)
+        ==25465== Mispred rate:            7.9% (        8.2%     +        0.0%   )
+        ```
+        - 'I refs: 4,665,037,323'  
+            - 这表示程序执行时，CPU 发出了 4,665,037,323 次指令引用。这是程序执行过程中加载指令的总次数。
+        - 'Branches:        451,076,778  (434,076,096 cond + 17,000,682 ind)'
+            - 这表示程序执行时共发生了 451,076,778 次分支操作。其中，cond（条件分支）为 434,076,096 次，而 ind（间接分支）为 17,000,682 次。
+            - 条件分支是基于一些条件判断（如 if 语句），而间接分支通常是函数调用或跳转表相关的操作。
+        - 'Mispredicts:      35,692,839  ( 35,692,555 cond +        284 ind)'
+            - 这是程序在执行过程中，CPU 的分支预测失败的次数。总共 35,692,839 次预测失败，其中 35,692,555 次是条件分支预测失败，284 次是间接分支预测失败。
+        - Mispred rate:            7.9% (        8.2%     +        0.0%   )
+            - 这是分支预测失败的比率，表示分支预测失败次数占总分支数的比例。在这份报告中，分支预测失败率为 7.9%，其中条件分支的预测失败率为 8.2%，而间接分支几乎没有预测失败（0.0%）。
+            - 7.9% 的分支预测失败率相对较高。理想情况下，CPU 的分支预测失败率应该尽可能低。
+        - 如果需要分析 缓存命中， 加上 `--cache-sim=yes`
+            ```bash
+            ==34107== I refs:        4,665,036,965
+            ==34107== I1  misses:            1,712    # L1 指令缓存（L1 I-cache）未命中的次数 非常低
+            ==34107== LLi misses:            1,622    # 最后一级缓存（LLC，即 L2 或 L3）也未命中的次数
+            ==34107== I1  miss rate:          0.00%
+            ==34107== LLi miss rate:          0.00%   # 几乎没有需要从主存读取指令的情况
+            ==34107== 
+            ==34107== D refs:        3,056,874,774  (2,284,537,546 rd   + 772,337,228 wr)
+            ==34107== D1  misses:        6,385,929  (    3,335,212 rd   +   3,050,717 wr)
+            ==34107== LLd misses:           26,719  (        1,250 rd   +      25,469 wr)
+            ==34107== D1  miss rate:           0.2% (          0.1%     +         0.4%  )
+            ==34107== LLd miss rate:           0.0% (          0.0%     +         0.0%  )  
+                        # 几乎所有数据访问都能在缓存中找到，很少访问主存。
+            ==34107== 
+            ==34107== LL refs:           6,387,641  (    3,336,924 rd   +   3,050,717 wr)
+            ==34107== LL misses:            28,341  (        2,872 rd   +      25,469 wr)
+            ==34107== LL miss rate:            0.0% (          0.0%     +         0.0%  )
+                        # 几乎所有数据都能在缓存中找到，极少需要访问主存。
+            ```
 
 
 # LLDB 
