@@ -42,6 +42,8 @@
         - Now no other loop iteration needs to wait. The algorithm is nonblocking.
     - CAS 有些情况下，比如 处理链表，会存在 ABA 问题
         - 解决方法是使用版本号: Pack a version number with each pointer in the same atomically updatable word
+- [19 Leiserchess Codewalk](course/static_resources/809f3351da7a2e5a6afc7c22e2e68e4d_MIT6_172F18_lec19.pdf)
+    - project 4
 
 
 
