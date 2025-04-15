@@ -12,6 +12,37 @@
         - Rule of Thumb: Parallelize the outer loops rather than the inner loops.
 - [2 Bentley Rules for Optimizing Work](course/static_resources/1a57adbec9520270d4485b42a2e1a316_MIT6_172F18_lec2.pdf)
 - [3 Bit Hacks](course/static_resources/cc6983c9ebd77c28e8ae85bc0e575360_MIT6_172F18_lec3.pdf)
+- [17 Synchronization Without Locks](course/static_resources/cc6983c9ebd77c28e8ae85bc0e575360_MIT6_172F18_lec3.pdf)
+    - non modern computer implement sequential consistency.
+    - instruction reordering
+        - store buffer ;  load take priority, bypassing/checking the store buff
+        - A LOAD may be reordered with a prior STORE to a different location but not with a prior STORE to the same locationk
+    - Lock Free Algorithm:  compare-and-swap,  for integer type only
+        - Why we need CAS ?
+        ```c++
+        cilk_for (int i = 0; i ‹ n; ++i) {
+            int temp = compute (myArray [i]);
+            L. lock();
+            result += temp;
+            L. unlock();
+        }
+        ```
+        - What happens if the operating system swaps out a loop iteration just after it acquires the mutex?
+            - All other loop iterations must wait!!
+        ```c++
+        cilk_for (int i = 0; i ‹ n; ++i) {
+            int temp = compute(myArray [i]);
+            int old, new;
+            do {
+                old = result;
+                new = old + temp;
+            } while (!CAS(&result, old, new));
+        }
+        ```
+        - Now no other loop iteration needs to wait. The algorithm is nonblocking.
+    - CAS 有些情况下，比如 处理链表，会存在 ABA 问题
+        - 解决方法是使用版本号: Pack a version number with each pointer in the same atomically updatable word
+
 
 
 ## Homework
