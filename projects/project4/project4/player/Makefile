@@ -1,4 +1,4 @@
-CC := clang
+CC := /Volumes/eWORK/SDKs/opencilk-2.1.0/bin/clang -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -L/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib
 TARGET := leiserchess
 SRC := util.c tt.c fen.c move_gen.c search.c eval.c end_game.c
 OBJ := $(SRC:.c=.o)
@@ -15,18 +15,18 @@ ifeq ($(PARALLEL),1)
 	# switch -fdetach to -ftapir to enable Tapir optimization passes for better
 	# performance.
 	CFLAGS := -std=gnu99 -Wall -g -fcilkplus
-	LDFLAGS= -Wall -lm -lrt -ldl -lpthread -lcilkrts
+	LDFLAGS= -Wall -lm  -ldl -lpthread 
 else
 ifeq ($(UNAME),Darwin)
 	OS_TYPE := Mac
 	PFLAG := -DMACPORT -D__MACH__ -D_XOPEN_SOURCE
-	CFLAGS := -std=gnu99 -lrt -Wall -DNDEBUG -g
-	LDFLAGS= -lrt -Wall
+	CFLAGS := -std=gnu99  -Wall -DNDEBUG -g
+	LDFLAGS=  -Wall
 else
 	OS_TYPE := Linux
 	#PFLAG := -D_XOPEN_SOURCE
 	CFLAGS := -std=gnu99 -Wall -g
-	LDFLAGS= -Wall -lm -lrt -ldl -lpthread
+	LDFLAGS= -Wall -lm  -ldl -lpthread
 endif
 endif
 
@@ -47,7 +47,7 @@ endif
 
 CFLAGS += $(OTHER_CFLAGS)
 
-LDFLAGS= -Wall -lm -lrt -ldl -lpthread -lcilkrts
+LDFLAGS= -Wall -lm  -ldl -lpthread 
 
 .PHONY : default clean
 
@@ -75,7 +75,7 @@ search.c: search_scout.c
 
 
 leiserchess : leiserchess.o $(OBJ)
-	$(CC) $^ $(LDFLAGS) -o $@ -lrt
+	$(CC) $^ $(LDFLAGS) -o $@ 
 
 clean :
 	rm -f *.o *.d* *~ $(TARGET)
