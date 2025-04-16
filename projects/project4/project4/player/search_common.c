@@ -1,5 +1,6 @@
 // Copyright (c) 2015 MIT License by 6.172 Staff
 #include "assert.h"
+#include "search.h"
 
 // tic counter for how often we should check for abort
 static int tics = 0;

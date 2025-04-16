@@ -8,7 +8,7 @@
 #include <stddef.h>
 
 // The MAX_NUM_MOVES is just an estimate
-#define MAX_NUM_MOVES 1024      // real number = 8 * (3 + 8 + 8 * (7 + 3)) = 728
+#define MAX_NUM_MOVES 1024     // real number = 8 * (3 + 8 + 8 * (7 + 3)) = 728
 #define MAX_PLY_IN_SEARCH 100  // up to 100 ply
 #define MAX_PLY_IN_GAME 4096   // long game!  ;^)
 
@@ -55,12 +55,7 @@ typedef int piece_t;
 #define PTYPE_SHIFT 2
 #define PTYPE_MASK 3
 
-typedef enum {
-  EMPTY,
-  PAWN,
-  KING,
-  INVALID
-} ptype_t;
+typedef enum { EMPTY, PAWN, KING, INVALID } ptype_t;
 
 // -----------------------------------------------------------------------------
 // Colors
@@ -69,10 +64,7 @@ typedef enum {
 #define COLOR_SHIFT 4
 #define COLOR_MASK 1
 
-typedef enum {
-  WHITE = 0,
-  BLACK
-} color_t;
+typedef enum { WHITE = 0, BLACK } color_t;
 
 // -----------------------------------------------------------------------------
 // Orientations
@@ -82,19 +74,9 @@ typedef enum {
 #define ORI_SHIFT 0
 #define ORI_MASK (NUM_ORI - 1)
 
-typedef enum {
-  NN,
-  EE,
-  SS,
-  WW
-} king_ori_t;
+typedef enum { NN, EE, SS, WW } king_ori_t;
 
-typedef enum {
-  NW,
-  NE,
-  SE,
-  SW
-} pawn_ori_t;
+typedef enum { NW, NE, SE, SW } pawn_ori_t;
 
 // -----------------------------------------------------------------------------
 // Moves
@@ -116,21 +98,21 @@ typedef enum {
 #define ROT_SHIFT 24
 #define ROT_MASK 3
 
+// 2 bits  Piece Type: Empty, Pawn, King, Invalid
+// 2 bits  Rotation ?
+// 8 bits  From square
+// 8 bits  Intermediate square, used when you do a swap. If no swap, it should be same as To sqaure
+// 8 bits  To square
 typedef uint32_t move_t;
 typedef uint64_t sortable_move_t;  // extra bits used to store sort key
 
 // Rotations
-typedef enum {
-  NONE,
-  RIGHT,
-  UTURN,
-  LEFT
-} rot_t;
+typedef enum { NONE, RIGHT, UTURN, LEFT } rot_t;
 
 // A single move should only be able to zap 1 piece now.
 typedef struct victims_t {
-  int zapped_count;
-  piece_t zapped;
+    int zapped_count;
+    piece_t zapped;
 } victims_t;
 
 // returned by make move in illegal situation
@@ -149,13 +131,13 @@ typedef struct victims_t {
 // https://www.chessprogramming.org/10x12_Board
 
 typedef struct position {
-  piece_t      board[ARR_SIZE];
-  struct position*  history;     // history of position
-  uint64_t     key;              // hash key
-  int          ply;              // Even ply are White, odd are Black
-  move_t       last_move;        // move that led to this position
-  victims_t    victims;          // pieces destroyed by shooter
-  square_t     kloc[2];          // location of kings
+    piece_t board[ARR_SIZE];
+    struct position* history;  // history of position
+    uint64_t key;              // hash key
+    int ply;                   // Even ply are White, odd are Black
+    move_t last_move;          // move that led to this position
+    victims_t victims;         // pieces destroyed by shooter
+    square_t kloc[2];          // location of kings
 } position_t;
 
 // -----------------------------------------------------------------------------
@@ -189,13 +171,12 @@ square_t from_square(move_t mv);
 square_t intermediate_square(move_t mv);
 square_t to_square(move_t mv);
 rot_t rot_of(move_t mv);
-move_t move_of(ptype_t typ, rot_t rot, square_t from_sq,
-               square_t intermediate_sq, square_t to_sq);
+move_t move_of(ptype_t typ, rot_t rot, square_t from_sq, square_t intermediate_sq, square_t to_sq);
 void move_to_str(move_t mv, char* buf, size_t bufsize);
 
-int generate_all(position_t* p, sortable_move_t* sortable_move_list,
-                 bool strict);
-int generate_all_with_color(position_t* p, sortable_move_t* sortable_move_list, color_t color_to_move);
+int generate_all(position_t* p, sortable_move_t* sortable_move_list, bool strict);
+int generate_all_with_color(position_t* p, sortable_move_t* sortable_move_list,
+                            color_t color_to_move);
 void do_perft(position_t* gme, int depth, int ply);
 void low_level_make_move(position_t* old, position_t* p, move_t mv);
 victims_t make_move(position_t* old, position_t* p, move_t mv);
