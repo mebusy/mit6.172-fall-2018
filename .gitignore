@@ -38,3 +38,6 @@ perf.data
 perf.data.old
 
 cachegrind.out.*
+
+*.class
+lauto.jar
