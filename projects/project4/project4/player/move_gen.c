@@ -96,7 +96,7 @@ char* nesw_to_str[NUM_ORI] = {"north", "east", "south", "west"};
 // So if you change your piece representation, you'll need to recompute what the
 // old piece representation is when indexing into the zob table to get the same
 // node counts.
-static uint64_t zob[ARR_SIZE][1 << PIECE_SIZE];
+static uint64_t zob[ARR_SIZE][1 << PIECE_SIZE];  // zob[16x16][32]
 static uint64_t zob_color;
 uint64_t myrand();
 

@@ -1,4 +1,4 @@
-CC := /Volumes/eWORK/SDKs/opencilk-2.1.0/bin/clang -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -L/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib
+CC := /Volumes/WORK/SDKs/opencilk-2.1.0/bin/clang -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -L/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib
 TARGET := leiserchess
 SRC := util.c tt.c fen.c move_gen.c search.c eval.c end_game.c
 OBJ := $(SRC:.c=.o)

@@ -47,6 +47,8 @@ Theorem [KM75]. For a game tree with branching factor b and depth d, an alpha-be
 
 - Chess programs often encounter the same position repeatedly during their search.
 - A transposition table stores results of previous searches in a hash table to avoid unnecessary work.
+- normally a hash table, which value pointers to another structure which contains the computed result of this position.
+    - e.g. best move, evaluation, alpha, beta, etc.
 
 ## Zobrist Hashing
 
@@ -54,4 +56,35 @@ Theorem [KM75]. For a game tree with branching factor b and depth d, an alpha-be
 - 核心思想
     - 预生成随机数表：为棋盘每个位置的所有可能状态（包括棋子类型、颜色及空）生成唯一随机数。
     - XOR 操作更新：通过XOR旧状态和新状态的随机数快速更新哈希值，避免重新计算整个棋盘。
+- 实现步骤
+    1. 初始化随机数表：
+        - 创建三(二)维数组 Z[(x,y)][state]，其中x,y (pos) 表示棋盘位置，state 表示可能的状态（如棋子类型、颜色或空）。
+        - 使用高质量伪随机数生成器（如64位或128位数）填充该表，确保不同状态对应的随机数独立且均匀分布。
+    2. 初始哈希计算：
+        - 遍历棋盘每个位置，根据当前状态选择对应的随机数。
+        - 将所有随机数进行异或操作，得到初始哈希值。
+    3. 更新哈希值：
+        - 当棋盘状态发生变化时（如棋子移动），找到旧状态和新状态对应的随机数。
+        - 使用异或操作更新哈希值：`hash = hash ^ Z[i][j][old_state] ^ Z[i][j][new_state]`。
+        - 例如，棋子从位置A移动到B： 
+            - 移除A的原棋子：hash = hash ^= Z[A][原棋子]
+            - 添加A的空状态：hash = hash ^= Z[A][空]
+            - 移除B的空状态: hash = hash ^= Z[B][空]
+            - 添加B的新棋子: hash = hash ^= Z[B][新棋子]
+- 关键特性
+    - 高效性：每次状态更新仅需常数时间（O(1)），适合频繁变动的游戏局面。
+    - 可逆性：异或操作可逆，便于撤销移动（如回溯搜索）。
+    - 低冲突概率：使用足够长的随机数（如64位）降低不同状态哈希冲突概率。
+- 示例（国际象棋）
+    - 随机数表：8x8棋盘，每个位置对应12种棋子（6种类型×2种颜色）和空状态，共13种状态。
+    - 初始哈希：遍历初始布局，异或所有位置的对应随机数。
+    - 移动更新：移动棋子时异或旧位置和新位置的随机数，吃子时额外异或被吃棋子随机数。
+- 注意事项
+    - 随机数质量：需确保随机数独立均匀分布，避免可预测性。
+    - 冲突处理：哈希表需存储额外信息（如校验和或完整状态）以应对极少数冲突。
+    - 状态完整性：若游戏规则包含额外状态（如易位权、过路兵），需扩展哈希计算以涵盖这些信息。
+- 变体与扩展
+    - 组合键：结合玩家轮次等信息生成复合哈希键，区分相同局面的不同游戏阶段。
+
+
 
