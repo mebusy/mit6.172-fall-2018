@@ -365,6 +365,10 @@ Theorem [KM75]. For a game tree with branching factor b and depth d, an alpha-be
     - 最佳的走法（在某些格式中）
 - e.g.
     - King Versus King
+    - King Versus King and Pawn
+        - who will win ? 
+        - how many moves to win ?
+
 
 
 ## Iterative Deepening
