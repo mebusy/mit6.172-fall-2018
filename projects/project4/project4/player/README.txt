@@ -57,12 +57,17 @@ search_common.c:
         `get_sortable_move_list` in `search_common.c` (also search.c)
     2. orderable move representation
         `move_gen.h:119`
+    3. Killer-Move Table : 378/409
+    4. Best-move Tabel : 367
 
 search_globals.c:
     Implements the killer move table (which keeps track of moves that triggered
     a beta-cutoff within a ply) and the best move history table (which keeps
     track of how often a move is determined to be the best, irrespective of
     position).
+
+    Killer-Move Table L11
+    Best-move histroy L17
 
 tt.c:
     Implements the transposition table (a hashtable storing positions seen by
