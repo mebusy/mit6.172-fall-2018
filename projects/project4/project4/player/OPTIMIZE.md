@@ -66,7 +66,7 @@ Theorem [KM75]. For a game tree with branching factor b and depth d, an alpha-be
     3. 更新哈希值：
         - 当棋盘状态发生变化时（如棋子移动），找到旧状态和新状态对应的随机数。
         - 使用异或操作更新哈希值：`hash = hash ^ Z[i][j][old_state] ^ Z[i][j][new_state]`。
-        - 例如，棋子从位置A移动到B： 
+        - 例如，棋子从位置A移动到B： (添加/移除 空状态必须吗？)
             - 移除A的原棋子：hash = hash ^= Z[A][原棋子]
             - 添加A的空状态：hash = hash ^= Z[A][空]
             - 移除B的空状态: hash = hash ^= Z[B][空]
