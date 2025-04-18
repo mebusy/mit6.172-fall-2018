@@ -87,4 +87,14 @@ Theorem [KM75]. For a game tree with branching factor b and depth d, an alpha-be
     - 组合键：结合玩家轮次等信息生成复合哈希键，区分相同局面的不同游戏阶段。
 
 
+## killer-move table
+
+- 通过“记住”曾引发剪枝的强力移动，让程序在后续搜索中优先尝试这些走法，从而显著减少计算量。这是国际象棋引擎实现高效搜索的核心技术之一。
+    - the table is indexed by ply, because you tend to see the same moves at the same depth.
+    - the killer move table, basically, just stores moves that tirgger the beta cutoff in your search.
+- 工作原理示例
+    - 假设程序在搜索深度为 5 的节点时，发现移动 Nf3（马走到 f3）触发了 beta 剪枝（即该移动足够好，无需继续搜索其他分支）。此时：
+        - Killer-move table 会在深度 5 的记录中保存 Nf3。
+        - 当程序搜索同一层（深度 5）的其他分支时，会优先尝试 Nf3，而不是按默认顺序（如兵、马、象等）遍历所有可能移动。
+
 
