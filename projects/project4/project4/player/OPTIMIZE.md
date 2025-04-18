@@ -362,6 +362,7 @@ Theorem [KM75]. For a game tree with branching factor b and depth d, an alpha-be
 - 残局数据库（Endgame Tablebase），也叫 Tablebase，是一个包含所有可能的残局局面（通常是 3~7 个子）和这些局面的最优解的数据库。对每一个局面，Tablebase 告诉你：
     - 局面是 胜、和、负
     - 离胜利/失败还有多少步（例如：Mate in 5）
+        - make sure that you maintain the distance in order to avoid cycling.
     - 最佳的走法（在某些格式中）
 - e.g.
     - King Versus King
@@ -388,4 +389,27 @@ Theorem [KM75]. For a game tree with branching factor b and depth d, an alpha-be
 - 迭代加深的缺点
     - 1. 可能会浪费时间在较低深度的搜索上，尤其是在时间限制较短时。
     - 2. 对于非常深的搜索树，可能需要较长的时间来完成搜索。
+
+
+## Also applicable to MCTS
+
+- Move Ordering（移动排序）
+    - 应用方式：在 MCTS 的 选择（Selection） 阶段，优先访问历史胜率高或探索价值大的子节点。
+    - 技术调整：
+        - 使用 历史启发式（History Heuristic） 或 置换表建议的移动 对子节点排序。
+        - 类似 UCT 公式的改进（如 RAVE 或 Progressive Bias），结合静态评估值引导移动选择。
+- Transposition Table（置换表）
+    - 应用方式：在不同路径到达相同局面时，共享节点的统计信息（访问次数、胜率）。
+    - 技术调整：
+        - 使用 Zobrist 哈希 识别相同局面。
+        - 合并多个父节点对同一子节点的访问数据，加速收敛。
+- Best-Move Table（最佳着法表）
+    - 应用方式：在节点中记录历史模拟中的最佳移动，并在选择阶段优先探索。
+    - 技术调整：
+        - 维护每个节点的「最佳候选移动」，类似 MCTS 的 AMAF（All Moves As First） 或 RAVE 技术。
+- Quiescence Search（静态搜索）
+    - 应用方式：在 模拟（Simulation） 阶段，对不稳定局面（如吃子、将军）进行更深入的静态评估，而非随机走子。
+    - 技术调整：
+        - 在模拟中引入「有限深度搜索」或「动态终止条件」，避免评估函数误判。
+
 
