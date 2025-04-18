@@ -98,3 +98,272 @@ Theorem [KM75]. For a game tree with branching factor b and depth d, an alpha-be
         - 当程序搜索同一层（深度 5）的其他分支时，会优先尝试 Nf3，而不是按默认顺序（如兵、马、象等）遍历所有可能移动。
 
 
+## BEST MOVE table
+
+- The best move is stored at the root of a search and is the move that gained the maximum score.
+- The best-move table is indexed by color, piece, square, and orientation
+
+## Null-Move Pruning
+
+- 空着剪枝 通过模拟一方“放弃走棋”（即走一步“空着”）来判断当前局面是否足够安全，从而跳过对该节点的深入搜索。
+- 其核心思想是：如果一方即使让对手连续走两步（自己走一步空着），对手仍无法改善局面，那么当前局面大概率已足够好，可以提前剪枝。
+- 核心原理
+    - 空着（Null Move）的定义
+        - 在搜索过程中，假设当前轮到某一方（例如白方）走棋，但白方选择“不走任何步”（即空着），直接让对手（黑方）连续走两步。如果即使在这种极端不利的情况下（白方放弃一步），黑方仍然无法找到比当前已知的评估值更好的结果，则可以判定当前节点的搜索价值较低，直接剪枝。
+    - 剪枝条件
+        - 空着后的对手响应搜索值 ≥ β
+        - 其中 β 是当前 alpha-beta 剪枝的上界。如果对手在连续走两步后仍无法突破 β，说明当前局面已经足够好，无需继续搜索。
+    - 搜索深度调整（R值）
+        - 为避免剪枝过度，空着后的对手响应搜索会减少深度（通常减少 2-3 层）。例如：
+            - 原始搜索深度为 depth，空着后的搜索深度为 depth - R（R 通常取 2 或 3）。
+- 简化版的 Null-Move Pruning 实现逻辑：
+    ```python
+    NULL_MOVE_R = 2  # 空着剪枝的深度减少量（通常取 2 或 3）
+    def value(state, alpha, beta, depth, can_null_move):
+        if state.is_terminal():
+            return state.utility()
+        if state.next_player() == MAX:
+            return max_value(state, alpha, beta, depth, can_null_move)
+        else:
+            return min_value(state, alpha, beta, depth, can_null_move)
+
+    def max_value(state, alpha, beta, depth, can_null_move):
+        # 尝试空着剪枝（仅在 MAX 层触发）
+        if can_null_move and depth >= NULL_MOVE_R + 1:
+            # 走空着：让 MIN 连续走两次（深度减少 R）
+            null_state = state.apply_null_move()  # 模拟 MAX 不走棋，直接轮到 MIN
+            null_eval = value(null_state, beta, beta, depth - NULL_MOVE_R - 1, can_null_move=False)
+            if null_eval >= beta:
+                return beta  # 剪枝
+
+        # 正常搜索 MAX 的移动
+        v = -inf
+        for move in state.generate_moves():
+            next_state = state.apply_move(move)
+            v = max(v, value(next_state, alpha, beta, depth - 1, can_null_move=True))
+            if v >= beta:
+                return v  # Beta 剪枝
+            alpha = max(alpha, v)
+        return v
+
+    def min_value(state, alpha, beta, depth, can_null_move):
+        # MIN 层不应用空着剪枝（通常仅用于 MAX 层）
+        v = inf
+        for move in state.generate_moves():
+            next_state = state.apply_move(move)
+            v = min(v, value(next_state, alpha, beta, depth - 1, can_null_move=True))
+            if v <= alpha:
+                return v  # Alpha 剪枝
+            beta = min(beta, v)
+        return v
+    ```
+    - 禁止连续空着
+        - 为避免无限递归（例如双方反复走空着），通常限制空着剪枝后必须至少走一步真实移动后才能再次使用空着（通过参数 can_null_move 控制）。
+    - 残局禁用
+        - 在残局中，空着剪枝可能导致漏算关键将杀路径（例如逼和或长将），因此某些引擎会在剩余棋子较少时关闭此技术。
+    - Zugzwang 局面的风险
+        - Zugzwang（被迫走劣招的局面）是空着剪枝的主要弱点。例如，如果当前局面下“不走棋”反而更好，但引擎强制剪枝，可能导致评估错误。因此，引擎通常结合其他技术（如检查是否处于 zugzwang 敏感阶段）来规避风险。
+- 实际效果
+    - 加速搜索：空着剪枝可减少 30%-50% 的节点搜索量，显著提升引擎速度。
+    - 适用场景：对非 zugzwang 的中局和复杂局面效果最佳。
+    - 典型实现：Stockfish、Komodo 等主流引擎均使用空着剪枝，但会根据局面动态调整 R 值或禁用条件。
+- 触发场景示例
+    - 假设白方当前 alpha = +1.5，beta = +2.0：
+    - 1. 白方尝试空着
+        - 黑方连走两步后的局面，从黑方（MIN）视角评估为 -2.5（即白方优势 +2.5）。
+        - 转换为白方（MAX）视角：null_value = 2.5。
+    - 2. 剪枝判断
+        - null_value >= beta → 2.5 >= 2.0 → 成立。
+        - 触发剪枝，不再搜索白方的实际走法。
+
+## Futility Pruning
+
+- 无用剪枝, 提前终止对“无希望分支”
+- 核心思想是：如果某个节点的评估值（即使加上乐观估计的增益）仍无法改变当前剪枝边界（alpha/beta），则无需浪费计算资源继续搜索该分支。
+- 核心原理
+    1. 基本假设
+        - 在博弈树搜索中，当搜索到某一节点时，如果当前局面的静态评估值（Static Evaluation）与预期最大可能增益（Margin）之和仍无法突破当前玩家的剪枝边界（alpha 或 beta），则认为继续搜索该分支是“无用的”（Futile），可以直接剪枝。
+    2. 适用范围
+        - 通常用于 叶子节点附近（剩余搜索深度较浅，如 depth <= 1）。
+        - 主要针对非关键路径（非主变路径，Non-PV Nodes）。
+        - 常用于 Min节点（对手回合）的剪枝，因为对手的目标是最小化我方收益。
+    3. 数学条件
+        - 对 Min 节点剪枝（对手回合）： 
+            - 如果 `eval(state) + margin <= alpha`，则剪枝。
+            - 若成立，则对手无法通过后续走法将局面恶化到 alpha 以下，直接剪枝。
+        - 对 Max 节点剪枝（我方回合）：
+            - 如果 `eval(state) - margin >= beta`，则剪枝。
+            - 若成立，则我方无法通过后续走法将局面优化到 beta 以上，直接剪枝。
+- 实际应用与优化
+    - 边际值（Margin）通常与剩余深度成正比，例如： margin = 100 x depth
+        - 深度越大，允许的增益范围越广，避免过度剪枝。
+    - 排除高风险移动
+        - 对吃子、将军、升变等可能大幅改变局面的移动，禁用 Futility Pruning。
+    - 结合其他技术
+        - 与静态搜索（Quiescence Search）结合，确保剪枝后局面的“稳定性”（避免因未计算吃子而漏算关键变化）。
+    - 残局处理
+        - 在残局中，由于单兵升变等微小优势可能决定胜负，通常减小边际或禁用剪枝。
+- 代码示例（伪代码）
+    ```python
+    def futility_pruning(state, alpha, beta, depth, is_max_node):
+        static_eval = evaluate(state)
+        margin = 150 * depth  # 定义安全边际
+
+        if is_max_node:
+            # Max 节点：若 static_eval - margin >= beta，剪枝
+            if static_eval - margin >= beta:
+                return beta
+        else:
+            # Min 节点：若 static_eval + margin <= alpha，剪枝
+            if static_eval + margin <= alpha:
+                return alpha
+
+        # 不满足条件，继续正常搜索
+        return None
+    ```
+
+## Late-Move Reduction
+
+- 对排序靠后的移动（Late Moves）减少搜索深度，从而大幅减少计算量
+- 核心原理
+    1. 基本假设
+        - 假设移动排序良好，前面的移动通常更有可能触发剪枝。
+        - 排序靠后的移动（Late Moves） 通常质量较低，即使跳过或浅层搜索，也不太可能改变最终结果。
+    2. 操作逻辑
+        - 对每个节点的移动列表，先全深度搜索前 N 个高优先级移动（如杀手着法、吃子、将军）。
+        - 对后续的 Late Moves，减少其搜索深度（例如从剩余深度 d 缩减为 d-1 或 d-2）。
+        - 若某个被缩减的移动意外表现出色（如大幅提升 alpha），则重新以全深度搜索（称为 re-search）。
+- 实现步骤
+    1. 生成并排序移动
+        1. 置换表最佳移动（来自历史缓存）
+        2. 吃子/将军移动（按 MVV-LVA 排序）
+        3. 杀手着法（Killer Moves）
+        4. 历史启发式高分移动
+        5. 其他移动
+    2. 动态缩减深度
+        ```python
+        # 全局常量
+        LMR_CUTOFF = 3      # 前 N 个移动不缩减深度
+        LMR_REDUCTION = 1   # 缩减的深度层数
+
+        def value(state, alpha, beta, depth, can_reduce):
+            if state.is_terminal():
+                return state.utility()
+            if state.next_player() == MAX:
+                return max_value(state, alpha, beta, depth, can_reduce)
+            else:
+                return min_value(state, alpha, beta, depth, can_reduce)
+
+        def max_value(state, alpha, beta, depth, can_reduce):
+            # 生成所有合法移动，并按优先级排序（例如：置换表移动 → 吃子 → 杀手着法 → 历史启发式）
+            moves = order_moves(state.generate_moves(), state)  # 假设已实现排序逻辑
+            
+            best_value = -inf
+            for i, move in enumerate(moves):
+                # 动态决定是否应用 LMR（非前 N 个移动且允许缩减）
+                reduced = False
+                search_depth = depth - 1  # 默认全深度
+                
+                if can_reduce and i >= LMR_CUTOFF and depth >= LMR_REDUCTION + 1:
+                    search_depth = depth - 1 - LMR_REDUCTION
+                    reduced = True
+                
+                # 递归搜索子节点
+                next_state = state.apply_move(move)
+                current_value = value(next_state, alpha, beta, search_depth, can_reduce=True)
+                
+                # 如果缩减搜索后触发 alpha 提升，重新以全深度搜索
+                if reduced and current_value > alpha:
+                    current_value = value(next_state, alpha, beta, depth - 1, can_reduce=False)
+                
+                # 更新 alpha 和 best_value
+                best_value = max(best_value, current_value)
+                alpha = max(alpha, best_value)
+                
+                # Beta 剪枝
+                if alpha >= beta:
+                    break
+            
+            return best_value
+
+        def min_value(state, alpha, beta, depth, can_reduce):
+            moves = order_moves(state.generate_moves(), state)
+            
+            best_value = inf
+            for i, move in enumerate(moves):
+                # 对 MIN 层同样应用 LMR（可选，根据引擎设计）
+                reduced = False
+                search_depth = depth - 1
+                
+                if can_reduce and i >= LMR_CUTOFF and depth >= LMR_REDUCTION + 1:
+                    search_depth = depth - 1 - LMR_REDUCTION
+                    reduced = True
+                
+                next_state = state.apply_move(move)
+                current_value = value(next_state, alpha, beta, search_depth, can_reduce=True)
+                
+                if reduced and current_value < beta:
+                    current_value = value(next_state, alpha, beta, depth - 1, can_reduce=False)
+                
+                best_value = min(best_value, current_value)
+                beta = min(beta, best_value)
+                
+                if beta <= alpha:
+                    break
+            
+            return best_value
+
+        # 辅助函数：按优先级排序移动
+        def order_moves(moves, state):
+            # 实现排序逻辑（示例：优先置换表移动 → 吃子 → 杀手着法 → 历史启发式）
+            ordered = []
+            # 1. 提取置换表建议的最佳移动（若有）
+            tt_move = state.transposition_table.get_move()
+            if tt_move in moves:
+                ordered.append(tt_move)
+                moves.remove(tt_move)
+            # 2. 吃子/将军移动按 MVV-LVA 排序
+            ordered += sorted([m for m in moves if m.is_capture()], key=lambda m: -m.mvv_lva_score())
+            # 3. 添加其他移动（杀手着法、历史启发式等）
+            ordered += [m for m in moves if not m.is_capture()]
+            return ordered
+        ```
+    3. 关键参数
+        - LMR_CUTOFF：前 N 个移动不缩减（通常取 2-4）。
+        - LMR_REDUCTION：深度缩减量（通常为 1-2 层，随剩余深度动态调整）。
+        - Re-search 条件：若缩减后的搜索值超过当前 alpha，重新全深度搜索。
+- 示例分析
+    - 场景：当前节点剩余深度为 6（depth=6），生成 10 个移动。
+    - 前 3 个移动（吃子、杀手着法）以深度 5 搜索。
+    - 后 7 个移动缩减为深度 4 搜索。
+    - 假设第 5 个移动（缩减深度后）返回 value=120，超过当前 alpha=100：
+        - 重新以深度 5 搜索该移动，最终返回 value=150，更新 alpha。
+    - 若后续移动无法超越 alpha=150，则触发剪枝。
+- 优化与注意事项
+    - 动态调整缩减量
+        - 剩余深度越大，缩减量可增加（例如 depth >= 6 时缩减 2 层，depth=3 时缩减 1 层）。
+        - 在 主变路径（PV Nodes） 禁用 LMR，避免漏算关键路径。
+    - 特殊局面的处理
+        - 将军局面：即使被标记为 Late Move，仍需全深度搜索，避免漏算将杀。
+        - 残局：减少缩减强度（因微小优势可能决定胜负）。
+    - 与历史启发式协同
+        - 结合历史得分（History Heuristic）优化移动排序，确保高潜力移动优先，提升剪枝效率。
+- 实际效果
+    - 加速效果：LMR 可减少 30%-50% 的节点搜索量，对深层搜索尤为显著。
+    - 准确性保障：通过 Re-search 机制，重要移动即使被误判为 Late Move，仍有机会全深度搜索。
+
+
+## Opening book 开局库
+
+- 预存的开局走法数据库，包含了大量经过人工或算法验证的高质量开局变例。
+
+## End game tablebase 残局库
+
+- 残局数据库（Endgame Tablebase），也叫 Tablebase，是一个包含所有可能的残局局面（通常是 3~7 个子）和这些局面的最优解的数据库。对每一个局面，Tablebase 告诉你：
+    - 局面是 胜、和、负
+    - 离胜利/失败还有多少步（例如：Mate in 5）
+    - 最佳的走法（在某些格式中）
+
+
+
+
