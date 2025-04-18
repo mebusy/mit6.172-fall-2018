@@ -363,6 +363,8 @@ Theorem [KM75]. For a game tree with branching factor b and depth d, an alpha-be
     - 局面是 胜、和、负
     - 离胜利/失败还有多少步（例如：Mate in 5）
     - 最佳的走法（在某些格式中）
+- e.g.
+    - King Versus King
 
 
 ## Iterative Deepening
