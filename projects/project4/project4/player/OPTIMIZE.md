@@ -1,5 +1,7 @@
 # search optimization
 
+[all in one](./pseudo_minimax.py)
+
 ## Quiescence Search
 
 https://www.chessprogramming.org/Quiescence_Search
