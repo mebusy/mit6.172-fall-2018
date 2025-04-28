@@ -122,8 +122,7 @@
 ## dtrace
 
 ```bash
-sudo dtrace -n 'profile-997 /execname == "a.out"/ { @[ustack()] = count(); }' -o out.stacks
-# then run ./a.out
+sudo dtrace -n 'profile-997 /execname == "a.out"/ { @[ustack()] = count(); }' -o out.stacks -c ./my_program
 ```
 
 - profile-997 指定一个 profile 探测器 ， 每秒采样 997 次。这是为了避免与常见系统事件的频率共振（如 1000Hz 可能与其他周期性任务冲突）。
