@@ -1,6 +1,8 @@
 # mit6.172-fall-2018
 
 
+[bit Hack](https://graphics.stanford.edu/~seander/bithacks.html) , or find in local archive "./bitHack/"
+
 ## Lectures
 
 - [1 Introduction & Matrix Multiplication](course/static_resources/d0c73dd51c79b95196a2e6faa824e1b4_MIT6_172F18_lec1.pdf)
