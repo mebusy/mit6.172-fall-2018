@@ -122,12 +122,13 @@
 ## dtrace
 
 ```bash
-sudo dtrace -n 'profile-997 /execname == "a.out"/ { @[ustack()] = count(); }' -o out.stacks -c ./my_program
+sudo dtrace -n 'profile-997 /execname == "a.out"/ { @[ustack()] = count(); }' -o out.stacks -c "./a.out debug.txt"
 ```
 
 - profile-997 指定一个 profile 探测器 ， 每秒采样 997 次。这是为了避免与常见系统事件的频率共振（如 1000Hz 可能与其他周期性任务冲突）。
-- `/execname == "my_program"/`  过滤条件 仅对名为 my_program 的进程采样。
+- `/execname == "a.out"/`  过滤条件 仅对名为 a.out 的进程采样。
 - 动作块 `{ @[ustack()] = count(); }` 获取当前线程的用户态调用栈（User Stack Trace）。 count()：统计每个唯一调用栈出现的次数。
+- `-c "./a.out debug.txt"` 指定要执行的命令和参数。
 
 ```bash
 brew install flamegraph
